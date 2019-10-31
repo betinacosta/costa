@@ -9,6 +9,8 @@ coverage = "==4.5.2"
 coveralls = "==1.5.1"
 
 [packages]
+google-api-python-client = "*"
+oauth2client = "*"
 
 [requires]
 python_version = "3.7"
