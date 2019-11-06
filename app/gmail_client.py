@@ -1,5 +1,7 @@
 import base64
 import os
+from httplib2 import Http
+from googleapiclient.discovery import build
 from googleapiclient import errors
 from oauth2client import file, client, tools
 import logging
@@ -9,7 +11,7 @@ CREDENTIALS_PATH = "credentials.json"
 CLIENT_SECRET_PATH = "client_secret.json"
 USER_ID = "me"
 ATTACHMENT_FILENAME = "Kindle-Notebook.csv"
-STORAGE_RAW_PATH = "storage/raw"
+STORAGE_RAW_PATH = os.path.join("app/storage/raw")
 
 
 class GmailClient:
@@ -26,6 +28,12 @@ class GmailClient:
             credentials = tools.run_flow(flow, store)
 
         return credentials
+
+    def authenticate(self):
+        credentials = self.get_credentials()
+        service = build("gmail", "v1", http=credentials.authorize(Http()))
+
+        return service
 
     def get_messages_matching_query(self, service, query=""):
         try:
@@ -53,22 +61,19 @@ class GmailClient:
         except errors.HttpError as error:
             logging.error(f"An Error occurred while getting message {message_id}: {error}")
 
-    def download_attachment(self, service, message_id):
+    def download_attachment(self, service, message_id, attachment_id):
         try:
-            message = service.users().messages().get(userId=self.user_id, id=message_id).execute()
+            attachment = service.users().messages().attachments().get(userId=self.user_id,
+                                                                      messageId=message_id,
+                                                                      id=attachment_id).execute()
 
-            for part in message['payload']['parts']:
-                if part[ATTACHMENT_FILENAME]:
-                    file_data = base64.urlsafe_b64decode(part['body']['data']
-                                                         .encode('UTF-8'))
+            file_data = base64.urlsafe_b64decode(attachment['data'].encode('UTF-8'))
+            path = f"{STORAGE_RAW_PATH}/{message_id}.csv"
 
-                    message_id = message["id"]
-                    path = f"{STORAGE_RAW_PATH}/{message_id}.csv"
-
-                    if not os.path.exists(path):
-                        f = open(path, 'w')
-                        f.write(file_data)
-                        f.close()
+            if not os.path.exists(path):
+                f = open(path, 'wb')
+                f.write(file_data)
+                f.close()
 
         except errors.HttpError as error:
             logging.error(f"An Error occurred while downloading attachment for message: {message_id}: {error}")
