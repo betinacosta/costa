@@ -1,21 +1,39 @@
-from gmail_client import GmailClient
+import logging
+
+from app.gmail_client import GmailClient
+
+ATTACHMENT_FILENAME = "Kindle-Notebook.csv"
 
 
-def main():
-    client = GmailClient()
+class HighlightsExtractor:
 
-    service = client.authenticate()
+    def download_highlights(self):
+        client = GmailClient()
+        attachments_list = self.get_attachment_ids_list()
 
-    # message_list = client.get_messages_matching_query(service, "from:no-reply@amazon.com has:attachment")
+        for attachment in attachments_list:
+            client.download_attachment(message_id=attachment["message_id"],
+                                       attachment_id=attachment["attachment_id"])
 
-    # message = client.get_message_details(service, "16e395b3b1ff9e44")
+    def get_attachment_ids_list(self):
+        attachments_list = []
+        client = GmailClient()
+        messages = client.get_messages_matching_query(query="from:no-reply@amazon.com, has:attachment")
 
-    client.download_attachment(service, "16e395b3b1ff9e44", "ANGjdJ-zj8NeFS5WDxU4gQ54xHPMZxpScOjRb4pw2_7KM--Jb_7e2rWRutqma1VQW-lCeKD0hs5XPehNOPYT3V4u9dL0cj26_WObMOivb08ID6Z1UemxA8HVWiw5ts4x-YELH6IWgs848Pk7G_60uyjiAcs_2yE5NeOhV22_--JTJ3TyMiyRL3KikmbtrHHkixLsA03IVfgCCdKMVaPHEd6-R00IQo3-AE_vyDsPkPnyLi2AWPQ33YLHTYniC8eHfH2ahPyYzCjelRhEZ9qEvdyI5W2b7GOdIcFXoNiMLr5ThXajOelosNrUMhfsJcD_VHrlbArd_R-l6I13tdIcqpUqJmOETjqRiGJr6Pr-rCN6UiejNLoP8xnHagRbvAc")
+        for message in messages["messages"]:
+            message_detail = client.get_message_details(message_id=message["id"])
+            attachment_id = self.get_attachment_id(message_detail=message_detail)
 
+            if attachment_id:
+                attachments_list.append({"message_id": message["id"], "attachment_id": attachment_id})
+            else:
+                logging.info(f"Message: {message['id']} has no Kinlde highlights attachments")
 
+        return attachments_list
 
-    # print(message)
+    def get_attachment_id(self, message_detail):
+        for part in message_detail['payload']['parts']:
+            if part['filename'] == ATTACHMENT_FILENAME:
+                return part["body"]["attachmentId"]
 
-
-if __name__ == '__main__':
-    main()
+        return ""
