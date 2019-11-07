@@ -10,7 +10,6 @@ SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
 CREDENTIALS_PATH = "credentials.json"
 CLIENT_SECRET_PATH = "client_secret.json"
 USER_ID = "me"
-ATTACHMENT_FILENAME = "Kindle-Notebook.csv"
 STORAGE_RAW_PATH = os.path.join("app/storage/raw")
 
 
@@ -19,7 +18,7 @@ class GmailClient:
     def __init__(self):
         self.user_id = USER_ID
 
-    def get_credentials(self):
+    def authenticate(self):
         store = file.Storage(CREDENTIALS_PATH)
         credentials = store.get()
 
@@ -27,15 +26,13 @@ class GmailClient:
             flow = client.flow_from_clientsecrets(CLIENT_SECRET_PATH, SCOPES)
             credentials = tools.run_flow(flow, store)
 
-        return credentials
-
-    def authenticate(self):
-        credentials = self.get_credentials()
         service = build("gmail", "v1", http=credentials.authorize(Http()))
 
         return service
 
-    def get_messages_matching_query(self, service, query=""):
+    def get_messages_matching_query(self, query=""):
+        service = self.authenticate()
+
         try:
             response = service.users().messages().list(userId=self.user_id,
                                                        q=query).execute()
@@ -53,7 +50,9 @@ class GmailClient:
         except errors.HttpError as error:
             logging.error(f"An Error occurred while executing list messages request: {error}")
 
-    def get_message_details(self, service, message_id):
+    def get_message_details(self, message_id):
+        service = self.authenticate()
+
         try:
             message = service.users().messages().get(userId=self.user_id, id=message_id).execute()
             return message
@@ -61,7 +60,9 @@ class GmailClient:
         except errors.HttpError as error:
             logging.error(f"An Error occurred while getting message {message_id}: {error}")
 
-    def download_attachment(self, service, message_id, attachment_id):
+    def download_attachment(self, message_id, attachment_id):
+        service = self.authenticate()
+
         try:
             attachment = service.users().messages().attachments().get(userId=self.user_id,
                                                                       messageId=message_id,
