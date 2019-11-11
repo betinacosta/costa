@@ -1,4 +1,5 @@
 import logging
+import pandas as pd
 
 from app.gmail_client import GmailClient
 
@@ -37,3 +38,53 @@ class HighlightsExtractor:
                 return part["body"]["attachmentId"]
 
         return ""
+
+    def format_raw_file(self, raw_file):
+        df = pd.read_csv(raw_file)
+        df.columns = df.columns.str.replace(' ', '_')
+        df.columns = df.columns.str.replace(':', '')
+        df.columns = df.columns.str.lower()
+
+        return df
+
+    def get_kindle_information(self, raw_file):
+        df = self.format_raw_file(raw_file)
+        information = []
+        delimiter = "---------"
+
+        for index, row in df.iterrows():
+            if delimiter in row["your_kindle_notes_for"]:
+                kindle_information = pd.DataFrame(information, columns=["your_kindle_notes_for"])
+                kindle_information.dropna()
+                return kindle_information
+            information.append(row["your_kindle_notes_for"])
+
+        logging.error(f"File delimiter: {delimiter} not found")
+        return df
+
+    def get_highlights_information(self,raw_file):
+        dataf = self.format_raw_file(raw_file)
+        m = dataf.your_kindle_notes_for.str.contains('----------------------------------------------').cumsum()
+        df = {f'df{i}': g for i, g in dataf.groupby(m)}
+        pass
+
+
+    def get_title(self, dataframe):
+        pass
+
+
+    def get_isbn_by_title(self):
+        pass
+
+    def get_author(self, isbn):
+        pass
+
+    def get_kindle_preview(self):
+        pass
+
+    def get_notes_and_highlights(self):
+        pass
+
+    def get_cover(self):
+        pass
+
