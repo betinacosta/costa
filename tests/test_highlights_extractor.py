@@ -3,6 +3,7 @@ import os
 from unittest import mock
 import json
 import pandas as pd
+import numpy as np
 from pandas.util.testing import assert_frame_equal
 
 from app.highlights_extractor import HighlightsExtractor
@@ -80,12 +81,23 @@ def test_should_call_functions_to_download_highlights(mock_attachments_list, moc
 #     assert expected_result == result
 
 
-def test_should_return_dataset_with_kindle_information(highlights_extractor, raw_file):
+def test_should_return_dataset_with_kindle_information(highlights_extractor, highlights):
     expected_result = pd.DataFrame({"your_kindle_notes_for": ["SEGUINDO A CORRENTEZA",
                                                               "by Agatha Christie, Lúcia Brito",
                                                               "Free Kindle instant preview:",
                                                               "http://a.co/9O6l4am"]})
 
-    result = highlights_extractor.get_kindle_information(raw_file=raw_file)
+    result = highlights_extractor.get_kindle_information(dataframe=highlights)
 
     assert_frame_equal(expected_result, result)
+
+
+def test_should_return_dataset_with_highlights_information(highlights_extractor, highlights):
+    data = [["Highlight (Yellow)", "Location 3750", "5", "A senhorita está errada – disse Poirot."],
+            ["Note", "Location 3751", "5", "Real"],
+            ["Highlight (Yellow)", "Location 4263", "5", "(a esposa de Underhay não era católica)"]]
+
+    expected_result = pd.DataFrame(data, columns=["annotation_type", "location", "starred", "annotation"])
+    result = highlights_extractor.get_highlights_information(dataframe=highlights)
+
+    assert_frame_equal(expected_result, result, check_names=False)

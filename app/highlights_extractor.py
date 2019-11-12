@@ -39,16 +39,16 @@ class HighlightsExtractor:
 
         return ""
 
-    def format_raw_file(self, raw_file):
-        df = pd.read_csv(raw_file)
+    def format_dataframe_columns(self, df):
         df.columns = df.columns.str.replace(' ', '_')
         df.columns = df.columns.str.replace(':', '')
+        df.columns = df.columns.str.replace('?', '')
         df.columns = df.columns.str.lower()
 
         return df
 
-    def get_kindle_information(self, raw_file):
-        df = self.format_raw_file(raw_file)
+    def get_kindle_information(self, dataframe):
+        df = self.format_dataframe_columns(dataframe)
         information = []
         delimiter = "---------"
 
@@ -62,16 +62,25 @@ class HighlightsExtractor:
         logging.error(f"File delimiter: {delimiter} not found")
         return df
 
-    def get_highlights_information(self,raw_file):
-        dataf = self.format_raw_file(raw_file)
-        m = dataf.your_kindle_notes_for.str.contains('----------------------------------------------').cumsum()
-        df = {f'df{i}': g for i, g in dataf.groupby(m)}
-        pass
+    def get_highlights_information(self, dataframe):
+        df = self.format_dataframe_columns(dataframe)
+        delimiter = "Annotation"
 
+        pattern = df.your_kindle_notes_for.str.contains(delimiter).cumsum()
+
+        groupby = {f'df': g for i, g in df.groupby(pattern)}
+        new_dataframe = groupby["df"]
+
+        new_header = new_dataframe.iloc[0]
+
+        highlights_information = new_dataframe[1:]
+        highlights_information.columns = new_header
+        highlights_information.reset_index(drop=True, inplace=True)
+
+        return self.format_dataframe_columns(highlights_information)
 
     def get_title(self, dataframe):
         pass
-
 
     def get_isbn_by_title(self):
         pass
@@ -87,4 +96,3 @@ class HighlightsExtractor:
 
     def get_cover(self):
         pass
-
