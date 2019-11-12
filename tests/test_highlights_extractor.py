@@ -38,6 +38,15 @@ def highlights():
 
 
 @pytest.fixture
+def kindle_information():
+    information = pd.DataFrame({"your_kindle_notes_for": ["SEGUINDO A CORRENTEZA",
+                                                              "by Agatha Christie, Lúcia Brito",
+                                                              "Free Kindle instant preview:",
+                                                              "http://a.co/9O6l4am"]})
+    return information
+
+
+@pytest.fixture
 def raw_file():
     raw_file = os.path.join("tests/stubs/correnteza-notebook.csv")
     return raw_file
@@ -74,19 +83,10 @@ def test_should_call_functions_to_download_highlights(mock_attachments_list, moc
     mock_download.assert_called()
 
 
-# def test_should_return_book_title(highlights_extractor, highlights):
-#     expected_result = "seguindo a correnteza"
-#     result = highlights_extractor.get_title(dataframe=highlights)
-#
-#     assert expected_result == result
 
 
-def test_should_return_dataset_with_kindle_information(highlights_extractor, highlights):
-    expected_result = pd.DataFrame({"your_kindle_notes_for": ["SEGUINDO A CORRENTEZA",
-                                                              "by Agatha Christie, Lúcia Brito",
-                                                              "Free Kindle instant preview:",
-                                                              "http://a.co/9O6l4am"]})
-
+def test_should_return_dataset_with_kindle_information(highlights_extractor, highlights, kindle_information):
+    expected_result = kindle_information
     result = highlights_extractor.get_kindle_information(dataframe=highlights)
 
     assert_frame_equal(expected_result, result)
@@ -101,3 +101,25 @@ def test_should_return_dataset_with_highlights_information(highlights_extractor,
     result = highlights_extractor.get_highlights_information(dataframe=highlights)
 
     assert_frame_equal(expected_result, result, check_names=False)
+
+
+def test_should_return_book_title(highlights_extractor, kindle_information):
+    expected_result = "seguindo a correnteza"
+    result = highlights_extractor.get_title(kindle_information=kindle_information)
+
+    assert expected_result == result
+
+
+def test_should_return_book_authors(highlights_extractor, kindle_information):
+    expected_result = "Agatha Christie, Lúcia Brito"
+    result = highlights_extractor.get_authors(kindle_information=kindle_information)
+
+    assert expected_result == result
+
+
+def test_should_return_kinlde_preview_link(highlights_extractor, kindle_information):
+    expected_result = "http://a.co/9O6l4am"
+    result = highlights_extractor.get_kindle_preview(kindle_information=kindle_information)
+
+    assert expected_result == result
+

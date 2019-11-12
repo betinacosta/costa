@@ -79,20 +79,30 @@ class HighlightsExtractor:
 
         return self.format_dataframe_columns(highlights_information)
 
-    def get_title(self, dataframe):
-        pass
+    def get_title(self, kindle_information):
+        uppercase_title = kindle_information.your_kindle_notes_for.iloc[0]
+        title = uppercase_title.lower()
 
-    def get_isbn_by_title(self):
-        pass
+        return title
 
-    def get_author(self, isbn):
-        pass
+    def get_authors(self, kindle_information):
+        raw_authors = kindle_information.your_kindle_notes_for.iloc[1]
+        delimiter = "by "
 
-    def get_kindle_preview(self):
-        pass
+        raw_authors = raw_authors.split(delimiter)
+        authors = raw_authors[1]
+
+        return authors
+
+    def get_kindle_preview(self, kindle_information):
+        kindle_preview = kindle_information.your_kindle_notes_for.iloc[3]
+        return kindle_preview
 
     def get_notes_and_highlights(self):
         pass
 
     def get_cover(self):
+        pass
+
+    def get_isbn_by_title(self):
         pass
