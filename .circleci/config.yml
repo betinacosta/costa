@@ -29,7 +29,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            . venv/bin/activate
+            pipenv shell
             coverage run -m pytest
             coverage report
 
