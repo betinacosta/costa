@@ -1,0 +1,270 @@
+{
+ "id": "16e395b3b1ff9e44",
+ "threadId": "16e395b3b1ff9e44",
+ "labelIds": [
+  "UNREAD",
+  "CATEGORY_UPDATES",
+  "INBOX"
+ ],
+ "snippet": "Hello Betina Costa, Here are your notes and highlights from “Convite para um homicídio”. We&#39;ve attached a PDF to this email for easy printing. You can also open the attached CSV file in Excel or",
+ "historyId": "8521",
+ "internalDate": "1572920307000",
+ "payload": {
+  "partId": "",
+  "mimeType": "multipart/mixed",
+  "filename": "",
+  "headers": [
+   {
+    "name": "Delivered-To",
+    "value": "gibneyapi@gmail.com"
+   },
+   {
+    "name": "Received",
+    "value": "by 2002:ab3:a0e:0:0:0:0:0 with SMTP id t14csp95572ltf;        Mon, 4 Nov 2019 18:18:31 -0800 (PST)"
+   },
+   {
+    "name": "X-Received",
+    "value": "by 2002:a6b:5403:: with SMTP id i3mr26415315iob.230.1572920310669;        Mon, 04 Nov 2019 18:18:30 -0800 (PST)"
+   },
+   {
+    "name": "ARC-Seal",
+    "value": "i=2; a=rsa-sha256; t=1572920310; cv=pass;        d=google.com; s=arc-20160816;        b=RILy+bUApgXqDHJdF/77teu8xK1Y1OJjTpXY0r+BMPqfvenLWeZnhkpiLMs0DxUgAz         5fvOFg5r6m1bB7Aq1GuyhycZfvf82YmptNTZRpg0+k0ZaRgSqBzcfgBBd7p+FLK4UwMs         euGyxVqrObMgYFXxDbYg9WLksTdOU2ragpfdgrga3j3Wb3nuknTBsXOPGmXq0cAf80OY         gdgCyZIQEhQ5yK9Lzf6EBE4l58hOlKPy2lcHDXvpJDgnKJOJTSQAXX8s8MKq2DBp9Y4Z         rRUV4QWd4uKrqRijo9G92hL0J8p0iVF5DXlidyNX3TzNHSkeLyqAUTeaf4lhnNlTFnsn         +ydQ=="
+   },
+   {
+    "name": "ARC-Message-Signature",
+    "value": "i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from         :dkim-signature:dkim-signature:delivered-to;        bh=1/3DLPB5Sil/EpvGs8dKPzR5WK0OwRfpsJuZgrqmdl0=;        b=P8L6o9WaCgp6w4CQtpMZqR0e6gFS+mqYRi9Vr9/y4RfZZb37/EsGBJ1rCPtMlw9Sz7         0mubMWRC3vqAMsUtjfhZJzjOkggV0QSIpiwpOEO4gx12IkmWHHk72W7TtYPa2061zcSn         9Rbs/8VUTC3HfXnVE3Sj2sAjk3p2hw1EvwNx1PITrZKoDlRYeGKqOXR2mtbYgNCyo41R         /uu1nI2RKe1F4Vk1BV8MTvdlMDABEB6YWS+9Js+Ru5w/TQNGi6wp/HLe82+A56YiWymY         CDZfxzTRY/3ZnZrQRxvtx48Et5zXa5WOpillkbX4dW1EtIbTrst7bjPdvZ/X0xOSEtFB         fSSA=="
+   },
+   {
+    "name": "ARC-Authentication-Results",
+    "value": "i=2; mx.google.com;       dkim=pass header.i=@amazon.com header.s=jvxsykglqiaiibkijmhy37vqxh4mzqr6 header.b=NeESPK8i;       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=KqhwivQu;       arc=pass (i=1 spf=pass spfdomain=bounces.amazon.com dkim=pass dkdomain=amazon.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=amazon.com);       spf=pass (google.com: domain of bmcosta13+caf_=gibneyapi=gmail.com@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=\"bmcosta13+caf_=gibneyapi=gmail.com@gmail.com\";       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com"
+   },
+   {
+    "name": "Return-Path",
+    "value": "\u003cbmcosta13+caf_=gibneyapi=gmail.com@gmail.com\u003e"
+   },
+   {
+    "name": "Received",
+    "value": "from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])        by mx.google.com with SMTPS id w21sor12106923ili.127.2019.11.04.18.18.30        for \u003cgibneyapi@gmail.com\u003e        (Google Transport Security);        Mon, 04 Nov 2019 18:18:30 -0800 (PST)"
+   },
+   {
+    "name": "Received-SPF",
+    "value": "pass (google.com: domain of bmcosta13+caf_=gibneyapi=gmail.com@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;"
+   },
+   {
+    "name": "Authentication-Results",
+    "value": "mx.google.com;       dkim=pass header.i=@amazon.com header.s=jvxsykglqiaiibkijmhy37vqxh4mzqr6 header.b=NeESPK8i;       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=KqhwivQu;       arc=pass (i=1 spf=pass spfdomain=bounces.amazon.com dkim=pass dkdomain=amazon.com dkim=pass dkdomain=amazonses.com dmarc=pass fromdomain=amazon.com);       spf=pass (google.com: domain of bmcosta13+caf_=gibneyapi=gmail.com@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=\"bmcosta13+caf_=gibneyapi=gmail.com@gmail.com\";       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com"
+   },
+   {
+    "name": "X-Google-DKIM-Signature",
+    "value": "v=1; a=rsa-sha256; c=relaxed/relaxed;        d=1e100.net; s=20161025;        h=x-gm-message-state:delivered-to:dkim-signature:dkim-signature:from         :to:message-id:subject:mime-version:bounces-to:date:feedback-id;        bh=1/3DLPB5Sil/EpvGs8dKPzR5WK0OwRfpsJuZgrqmdl0=;        b=qEmEwQgYIdTmsFV0sejtnhaLK9V9jN2krWpNGpRUnD3B4m0r67G9kyE6PPALjOa7JY         4HeR3B/+ki4PPQ7agt95TBXxvN30pptnS7Mgrc0FdzI2kJhDa9z/NLZFV/It74Hg0RUB         4Ivcfm69iEpU49F2eqPlQy9PNzF441M6imNpm4G+wT1/fuRabK9eBfN0FqPTBnJnbGuM         kiRpaWEU0+x97rqHj8LNTtudJ44TrD8GMuwu4MchaoGqIZKetKk5SzGmw/9R2RYLJ5oa         9VSTbSxx90tJl0jJ8xrdW/FOBqKP0gy1SmWXChhJzlnDopHHInpWK9AeAzXkKRtcfUNS         25xg=="
+   },
+   {
+    "name": "X-Gm-Message-State",
+    "value": "APjAAAXaFImXmEBY0rxwUxqp6NVPpTLOwAwKB7JVMHUqmqrp42/nc23X BZa+IcFwbyF7akDl1RR+gUBmxt+K+RICkch7XOrNe2I++zP8ApE="
+   },
+   {
+    "name": "X-Received",
+    "value": "by 2002:a92:908:: with SMTP id y8mr15373926ilg.12.1572920309591;        Mon, 04 Nov 2019 18:18:29 -0800 (PST)"
+   },
+   {
+    "name": "X-Forwarded-To",
+    "value": "gibneyapi@gmail.com"
+   },
+   {
+    "name": "X-Forwarded-For",
+    "value": "bmcosta13@gmail.com gibneyapi@gmail.com"
+   },
+   {
+    "name": "Delivered-To",
+    "value": "bmcosta13@gmail.com"
+   },
+   {
+    "name": "Received",
+    "value": "by 2002:ad5:4249:0:0:0:0:0 with SMTP id k9csp193427imo;        Mon, 4 Nov 2019 18:18:27 -0800 (PST)"
+   },
+   {
+    "name": "X-Google-Smtp-Source",
+    "value": "APXvYqz5dicJRjd2X+xrUSPBZbqdewBL4L14jb+ktCuGpMW8ZmaamYJs562XVvXiCPk9wjtW8BAK"
+   },
+   {
+    "name": "X-Received",
+    "value": "by 2002:ad4:4391:: with SMTP id s17mr8038843qvr.232.1572920307674;        Mon, 04 Nov 2019 18:18:27 -0800 (PST)"
+   },
+   {
+    "name": "ARC-Seal",
+    "value": "i=1; a=rsa-sha256; t=1572920307; cv=none;        d=google.com; s=arc-20160816;        b=bQKHTuAtOdrkd5j9NaaWJatV3z/GCx8KS5fHqzo/4VFQI+DxG9V25GvBRC7PqJQ5z/         aTwFHc89OKGq4YuixOmAIf4FrmfYz4K5BU0aorelVS0GYPW9s0fG/S5wLDcVhmnr1yE/         iOt0vhBJs3WuxJu0WtqJpm7Cz0laLHVL8EU4DlvyaZdUxFEYh+8qtkHoQZNZlFCT+YP9         ltlD/XpTxAN1RSUW1YKqWopv5x5Rm5HtqCeTqcp6rW4oIQs9pjEbk9fjS6DDIGCzyQyl         6pj8cYgFjd4m9DTDsQ89I0I4K+dvA65sMuq7toqtVdt21e6Wci+ElIR7/mmw7jwPnxs/         pWvg=="
+   },
+   {
+    "name": "ARC-Message-Signature",
+    "value": "i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;        h=feedback-id:date:bounces-to:mime-version:subject:message-id:to:from         :dkim-signature:dkim-signature;        bh=1/3DLPB5Sil/EpvGs8dKPzR5WK0OwRfpsJuZgrqmdl0=;        b=AGhA6lj5FkdlUTXUCgVhjALTTcxiJ8e/sfwpqiugUIisk3bRGVwJa6Ng6Eds+8Xat+         Zjkj67c7ZhaxAGOzgK6S0pv9qtQoi1wAhT1VCxicxFGt85hOeebedLzHBOjf9UrtUXP4         4wPipvsP3ohT6vB3qHK9TIVLsjN92ous8sAZLb4xWF789Kjnh0SsYnYFHis/3XLNfvfE         KmZOPuRWCAs/+KNoWa2Xes8xL1bU6SZOEBM2TUYJXwU/y3SQPdTiSofVtpRcBg77Gz6F         mBD42g8AeDicVl74WZtcRsFoMbMEt2NRoPCUhxNvUTo6p0+yBDVfwixWyov51j8ToLkt         0CYg=="
+   },
+   {
+    "name": "ARC-Authentication-Results",
+    "value": "i=1; mx.google.com;       dkim=pass header.i=@amazon.com header.s=jvxsykglqiaiibkijmhy37vqxh4mzqr6 header.b=NeESPK8i;       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=KqhwivQu;       spf=pass (google.com: domain of 201911050218264eadb7d5524545a3b9f1ea7c7eb0p0na@bounces.amazon.com designates 54.240.13.89 as permitted sender) smtp.mailfrom=201911050218264eadb7d5524545a3b9f1ea7c7eb0p0na@bounces.amazon.com;       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=amazon.com"
+   },
+   {
+    "name": "Return-Path",
+    "value": "\u003c201911050218264eadb7d5524545a3b9f1ea7c7eb0p0na@bounces.amazon.com\u003e"
+   },
+   {
+    "name": "Received",
+    "value": "from a13-89.smtp-out.amazonses.com (a13-89.smtp-out.amazonses.com. [54.240.13.89])        by mx.google.com with ESMTPS id x18si15437730qtm.123.2019.11.04.18.18.27        for \u003cbmcosta13@gmail.com\u003e        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);        Mon, 04 Nov 2019 18:18:27 -0800 (PST)"
+   },
+   {
+    "name": "Received-SPF",
+    "value": "pass (google.com: domain of 201911050218264eadb7d5524545a3b9f1ea7c7eb0p0na@bounces.amazon.com designates 54.240.13.89 as permitted sender) client-ip=54.240.13.89;"
+   },
+   {
+    "name": "DKIM-Signature",
+    "value": "v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=jvxsykglqiaiibkijmhy37vqxh4mzqr6; d=amazon.com; t=1572920307; h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date; bh=lsDN8pm0zvkT4lgTQcSSXagS+ZqoV9K6uoHVAlGzy60=; b=NeESPK8iMfeKqOyUgIi/rJHDmxSzWBEQ7/sGUfy5MO9zDPHb1BH5l2yen7xOz09x jxKAFuGElmLpQjcsOUCTwwdecYMl130a3B1zjTCB1UFp/BCgGUhc7jeRNY0YRPovaSb EzC0Ekwkc7ssEqXyd6EBfTDVf1asy7XW73dsq65o="
+   },
+   {
+    "name": "DKIM-Signature",
+    "value": "v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1572920307; h=From:To:Message-ID:Subject:MIME-Version:Content-Type:Date:Feedback-ID; bh=lsDN8pm0zvkT4lgTQcSSXagS+ZqoV9K6uoHVAlGzy60=; b=KqhwivQuMkLXKF/fmFE6pnMxslGHvRAtOjmfBH9/n6yX/rco+Gfmm4l2fRuEsReN TQe4ySF7Ah8OX18yfw2eGH9hncgL31cAcqoJt1HM1YzCZtiSXangFGpos1kyts8cR4e BaXwRoBKu+YTDHDi4L+9UtDN5PJ7Hyx+ZHb56Xu8="
+   },
+   {
+    "name": "From",
+    "value": "Amazon Kindle \u003cno-reply@amazon.com\u003e"
+   },
+   {
+    "name": "To",
+    "value": "bmcosta13@gmail.com"
+   },
+   {
+    "name": "Message-ID",
+    "value": "\u003c0100016e395b2d7e-230ad55c-128e-49dd-8870-ff4f9b327df7-000000@email.amazonses.com\u003e"
+   },
+   {
+    "name": "Subject",
+    "value": "Your Kindle Notes from \"Convite para um homicídio\""
+   },
+   {
+    "name": "MIME-Version",
+    "value": "1.0"
+   },
+   {
+    "name": "Content-Type",
+    "value": "multipart/mixed; boundary=\"----=_Part_12923781_67875436.1572920307055\""
+   },
+   {
+    "name": "X-AMAZON-MAIL-RELAY-TYPE",
+    "value": "notification"
+   },
+   {
+    "name": "Bounces-to",
+    "value": "201911050218264eadb7d5524545a3b9f1ea7c7eb0p0na@bounces.amazon.com"
+   },
+   {
+    "name": "X-AMAZON-METADATA",
+    "value": "CA=C1SYK5DKDUMCM3-CU=A1JD6UH71D2R7T"
+   },
+   {
+    "name": "X-Amzn-Kindle-Export-Request-ID",
+    "value": "e63eb9d7-9e10-4776-8805-5949cb80c84a"
+   },
+   {
+    "name": "X-Original-MessageID",
+    "value": "\u003curn.rtn.msg.201911050218264eadb7d5524545a3b9f1ea7c7eb0p0na@1572920307056.rtn-svc-na-back-c42xl1e-80908ebc.us-east-1.amazon.com\u003e"
+   },
+   {
+    "name": "Date",
+    "value": "Tue, 5 Nov 2019 02:18:27 +0000"
+   },
+   {
+    "name": "X-SES-Outgoing",
+    "value": "2019.11.05-54.240.13.89"
+   },
+   {
+    "name": "Feedback-ID",
+    "value": "1.us-east-1.ZHcGJK6s+x+i9lRHKog4RW3tECwWIf1xzTYCZyUaiec=:AmazonSES"
+   }
+  ],
+  "body": {
+   "size": 0
+  },
+  "parts": [
+   {
+    "partId": "0",
+    "mimeType": "multipart/alternative",
+    "filename": "",
+    "headers": [
+     {
+      "name": "Content-Type",
+      "value": "multipart/alternative; boundary=\"----=_Part_12923780_1137952943.1572920307055\""
+     }
+    ],
+    "body": {
+     "size": 0
+    },
+    "parts": [
+     {
+      "partId": "0.0",
+      "mimeType": "text/plain",
+      "filename": "",
+      "headers": [
+       {
+        "name": "Content-Type",
+        "value": "text/plain; charset=utf-8"
+       },
+       {
+        "name": "Content-Transfer-Encoding",
+        "value": "quoted-printable"
+       }
+      ],
+      "body": {
+       "size": 496,
+       "data": "SGVsbG8gQmV0aW5hIENvc3RhLA0KDQpIZXJlIGFyZSB5b3VyIG5vdGVzIGFuZCBoaWdobGlnaHRzIGZyb20g4oCcQ29udml0ZSBwYXJhIHVtIGhvbWljw61kaW_igJ0uIFdl4oCZdmUgYXR0YWNoZWQgYSBQREYgdG8gdGhpcyBlbWFpbCBmb3IgZWFzeSBwcmludGluZy4gWW91IGNhbiBhbHNvIG9wZW4gdGhlIGF0dGFjaGVkIENTViBmaWxlIGluIEV4Y2VsIG9yIHlvdXIgZmF2b3JpdGUgc3ByZWFkc2hlZXQgcHJvZ3JhbSBmb3IgZWRpdGluZyBvciByZWZvcm1hdHRpbmcuDQoNCldlIGhvcGUgeW91IGVuam95IQ0KQW1hem9uLmNvbS5icg0K4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCm4oCmDQpSZWFkIG9uIHRoZSBnbyBmb3IgZnJlZSAtIERvd25sb2FkIEtpbmRsZSBmb3IgQW5kcm9pZCwgaU9TLCBQQywgTWFjLCBhbmQgbW9yZQ0KaHR0cDovL2Ftem4udG8vMXQ0eGVCRA=="
+      }
+     }
+    ]
+   },
+   {
+    "partId": "1",
+    "mimeType": "text/csv",
+    "filename": "Kindle-Notebook.csv",
+    "headers": [
+     {
+      "name": "Content-Type",
+      "value": "text/csv; charset=UTF-8; name=Kindle-Notebook.csv"
+     },
+     {
+      "name": "Content-Transfer-Encoding",
+      "value": "quoted-printable"
+     },
+     {
+      "name": "Content-Disposition",
+      "value": "attachment; filename=Kindle-Notebook.csv"
+     }
+    ],
+    "body": {
+     "attachmentId": "ANGjdJ9gYQLvWOK_Qi",
+     "size": 1203
+    }
+   },
+   {
+    "partId": "2",
+    "mimeType": "application/pdf",
+    "filename": "Kindle-Notebook.pdf",
+    "headers": [
+     {
+      "name": "Content-Type",
+      "value": "application/pdf; name=Kindle-Notebook.pdf"
+     },
+     {
+      "name": "Content-Transfer-Encoding",
+      "value": "base64"
+     },
+     {
+      "name": "Content-Disposition",
+      "value": "attachment; filename=Kindle-Notebook.pdf"
+     }
+    ],
+    "body": {
+     "attachmentId": "ANGjdJ_j9rF1VmK2JEkd08AeacX_wsW_-9_91vtPYdaW2XkeRcBq7eXQT_EennNd7aoPB_H4O3Ueo0ExlMER7A9Y4L6KH_-tmCofqDplA_DK7pCqDR_gFq_DzvfB_PWrNho_vJxGXRJBMTa1MQG1_hI7YLGu1IrTfEIEiCL214OQONn1ppcEMQwDAdQzkQ_85f3wOqgvgcYD21abZ8Q6vI6HuB0aDO7r4ttIkeINR_PFnvYwqogJk1SYa9c5T_n6CKSySvH5YOeqH3mInPRcxUy8SBAe3yGppoKxLZi1y5mmEb-J-pndolyXPFiw3xd29ZinZvCA5jeoOT5P4rEwgU_MQymi9RQvXmkU69JwmmyBQ_DuDRASabWxVqOYQ6KperRWKGbpbaDQxp4AyZy-",
+     "size": 47717
+    }
+   }
+  ]
+ },
+ "sizeEstimate": 77145
+}

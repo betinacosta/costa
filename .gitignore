@@ -1,3 +1,9 @@
 .vscode
 *.pyc
 .DS_Store
+credentials.json
+token.pickle
+client_secret.json
+.idea
+.cache
+.coverage
