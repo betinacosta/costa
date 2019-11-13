@@ -33,7 +33,7 @@ jobs:
           name: run tests
           command: |
             pipenv run pytest -v --disable-warnings
-            $HOME/.local/bin/coverage pipenv run pytest --cov=./
+            pipenv run pytest --cov=./
 
       - store_artifacts:
           path: covs
