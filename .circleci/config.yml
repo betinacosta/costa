@@ -31,8 +31,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            coverage run -m pytest
-            coverage report
+            pytest -v --disable-warnings
 
       - store_artifacts:
           path: htmlcov
