@@ -7,4 +7,3 @@ client_secret.json
 .idea
 .cache
 .coverage
-.Pipfile.lock
