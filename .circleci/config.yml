@@ -20,6 +20,7 @@ jobs:
             command: |
               sudo pip install pipenv
               pipenv install
+              echo $HOME
 
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -32,10 +33,10 @@ jobs:
           name: run tests
           command: |
             pipenv run pytest -v --disable-warnings
-            pipenv run pytest --cov=./
+            $HOME/.local/bin/coverage pipenv run pytest --cov=./
 
       - store_artifacts:
-          path: coverage
+          path: covs
 
       - codecov/upload:
-          file: /home/circleci/repo/coverage
+          file: covs/coverage.xml
