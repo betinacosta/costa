@@ -30,6 +30,7 @@ jobs:
           name: run tests
           command: |
             pipenv run coverage run -m pytest
+            pipenv run coverage report
 
       - store_artifacts:
           path: htmlcov
