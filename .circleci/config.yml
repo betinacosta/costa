@@ -39,4 +39,4 @@ jobs:
           path: covs
 
       - codecov/upload:
-          file: covs/coverage.xml
+          file: covs
