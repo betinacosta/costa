@@ -18,7 +18,6 @@ jobs:
             command: |
               sudo pip install pipenv
               pipenv install
-              pipenv shell
 
       - save_cache:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
@@ -30,7 +29,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            coverage run -m pytest
+            pipenv run coverage run -m pytest
             coverage report
 
       - store_artifacts:
