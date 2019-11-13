@@ -37,5 +37,5 @@ jobs:
       - store_artifacts:
           path: htmlcov
 
-      - codecov_upload:
+      - codecov/upload:
           file: /home/circleci/repo/htmlcov
