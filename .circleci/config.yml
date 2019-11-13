@@ -29,8 +29,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            pipenv shell
-            coverage run -m pytest
+            pipenv run coverage run -m pytest
             coverage report
 
       - store_artifacts:
