@@ -33,10 +33,11 @@ jobs:
           name: run tests
           command: |
             pipenv run pytest -v --disable-warnings
-            pipenv run pytest --cov=app tests/
+            pipenv run pytest --cov-report xml --cov=app tests/
 
       - store_artifacts:
-          path: covs
+          path: /coverage
+          destination: bla.xml
 
       - codecov/upload:
-          file: covs
+          file: /coverage/bla.xml
