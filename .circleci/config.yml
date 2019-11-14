@@ -40,4 +40,4 @@ jobs:
           destination: coverage/coverage.xml
 
       - codecov/upload:
-          file: coverage/coverage.xml
+          file: coverage.xml
