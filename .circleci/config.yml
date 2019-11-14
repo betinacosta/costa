@@ -36,8 +36,8 @@ jobs:
             pipenv run pytest --cov-report xml --cov=app tests/
 
       - store_artifacts:
-          path: /coverage
-          destination: bla.xml
+          path: coverage.xml
+          destination: coverage.xml
 
       - codecov/upload:
-          file: /coverage/bla.xml
+          file: coverage.xml
