@@ -37,7 +37,7 @@ jobs:
 
       - store_artifacts:
           path: coverage.xml
-          destination: coverage.xml
+          destination: coverage/coverage.xml
 
       - codecov/upload:
-          file: coverage.xml
+          file: coverage/coverage.xml
