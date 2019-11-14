@@ -47,9 +47,14 @@ def kindle_information():
 
 
 @pytest.fixture
-def raw_file():
-    raw_file = os.path.join("tests/stubs/correnteza-notebook.csv")
-    return raw_file
+def highlights_information():
+    data = [["Highlight (Yellow)", "Location 3750", "5", "A senhorita está errada – disse Poirot."],
+            ["Note", "Location 3751", "5", "Real"],
+            ["Highlight (Yellow)", "Location 4263", "5", "(a esposa de Underhay não era católica)"]]
+
+    information = pd.DataFrame(data, columns=["annotation_type", "location", "starred", "annotation"])
+
+    return information
 
 
 @mock.patch("app.gmail_client.GmailClient.get_message_details")
@@ -83,8 +88,6 @@ def test_should_call_functions_to_download_highlights(mock_attachments_list, moc
     mock_download.assert_called()
 
 
-
-
 def test_should_return_dataset_with_kindle_information(highlights_extractor, highlights, kindle_information):
     expected_result = kindle_information
     result = highlights_extractor.get_kindle_information(dataframe=highlights)
@@ -92,12 +95,8 @@ def test_should_return_dataset_with_kindle_information(highlights_extractor, hig
     assert_frame_equal(expected_result, result)
 
 
-def test_should_return_dataset_with_highlights_information(highlights_extractor, highlights):
-    data = [["Highlight (Yellow)", "Location 3750", "5", "A senhorita está errada – disse Poirot."],
-            ["Note", "Location 3751", "5", "Real"],
-            ["Highlight (Yellow)", "Location 4263", "5", "(a esposa de Underhay não era católica)"]]
-
-    expected_result = pd.DataFrame(data, columns=["annotation_type", "location", "starred", "annotation"])
+def test_should_return_dataset_with_highlights_information(highlights_extractor, highlights, highlights_information):
+    expected_result = highlights_information
     result = highlights_extractor.get_highlights_information(dataframe=highlights)
 
     assert_frame_equal(expected_result, result, check_names=False)
@@ -120,6 +119,14 @@ def test_should_return_book_authors(highlights_extractor, kindle_information):
 def test_should_return_kinlde_preview_link(highlights_extractor, kindle_information):
     expected_result = "http://a.co/9O6l4am"
     result = highlights_extractor.get_kindle_preview(kindle_information=kindle_information)
+
+    assert expected_result == result
+
+
+def test_should_return_highlights_and_notes(highlights_extractor, highlights_information):
+    expected_result = [{"highlight": "A senhorita está errada – disse Poirot.", "note": "Real"},
+                       {"highlight": "(a esposa de Underhay não era católica)", "note": ""}]
+    result = highlights_extractor.get_notes_and_highlights(highlights_information=highlights_information)
 
     assert expected_result == result
 

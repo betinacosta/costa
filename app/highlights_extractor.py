@@ -98,8 +98,8 @@ class HighlightsExtractor:
         kindle_preview = kindle_information.your_kindle_notes_for.iloc[3]
         return kindle_preview
 
-    def get_notes_and_highlights(self):
-        pass
+    def get_notes_and_highlights(self, highlights_information):
+
 
     def get_cover(self):
         pass
