@@ -7,3 +7,4 @@ client_secret.json
 .idea
 .cache
 .coverage
+.coverage.xml

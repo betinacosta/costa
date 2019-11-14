@@ -4,5 +4,5 @@ setup:
 	pipenv shell
 
 test:
-	coverage run --source tests -m py.test
-	coverage report
+	pytest -v --disable-warnings
+	pytest --cov=app tests/
